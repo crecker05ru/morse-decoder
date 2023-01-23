@@ -38,23 +38,11 @@ const MORSE_TABLE = {
 };
 
 function decode(expr) {
-  // let dot = /10/g
-  // let dash = /11/g
-  // let space =  /[*]{10}/g
-
-  // expr
-  // // .replace(dot,'.')
-  // .replace(dash, '-')
-  // // .replace(space, ' ')
-  // console.log('expr',expr)
-  // return expr
-
-  let code = "00101010100000000010001011101000101110100000111111**********00001011110000111111000010111000101110100000111010"
 let dot = /10/g
 let dash = /11/g
 let space =  /[*]{10}/g
 
-let toMorse = code
+let toMorse = expr
   .replace(dash, '-')
   .replace(dot, '.')
   // .replace(space, ' ')
@@ -87,7 +75,7 @@ for (let i = 0;i < arrs.length;i++){
 // console.log('arrs[0]',arrs[0])
 // console.log('morseLetters',morseLetters.join('').replace('space',' '))
 
-return morseLetters.join('').replace('space',' ')
+return morseLetters.join('').replace(/space/g,' ')
 }
 
 module.exports = {
